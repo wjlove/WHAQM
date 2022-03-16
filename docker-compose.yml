@@ -22,7 +22,7 @@ services:
   iaq:
     build: ./iaq
     privileged: true
-    restart: always
+    # restart: always
     volumes:
         - 'iaq-data:/data/my_data'
   connector:
