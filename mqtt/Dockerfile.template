@@ -1,0 +1,5 @@
+FROM eclipse-mosquitto:1.6.15
+
+# COPY ./default.json /usr/share/grafana/conf/provisioning/dashboards
+
+COPY ./mosquitto.conf  /mosquitto/conf

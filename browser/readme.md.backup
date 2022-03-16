@@ -1,0 +1,56 @@
+# A plan for Software
+
+For some time now I have been thinking about how to prototype my project and mostly I have been playing around with some of my hardware options.  However along with this hardware selection process I needed to consider some of the software options I might have available and in my previous posts you can read about some of my thoughts and  hints as to what I was considering.  I believe that for the most part it is a pretty bad idea to not be thinking about both the hardware and the software at the same time you are developing a product, unless of course you find yourself in the position of having created something completely new. Then you may need to create the complementary component(s) to complete the package.  In my case I am not building a new product with elements that “...haven’t been invented yet…” but rather building and expanding upon the hard work of others, specifically the [Open Source](https://opensource.org/history)  community and [balena](https://balena.io).
+
+As a reminder, I mentioned in my introductory post in this forum that my project is based on some work already being done at balena, specifically the [IAQ project](https://github.com/balena-io-playground/balena-iaq).   During my few weeks here at balena this project has seen some significant changes and improvements (and many more to come!), the overall design still remains the same.   Given that I want to take the current design and incorporate it into my new idea I thought it would be helpful to spend some time to understand each component better.  A good way to do that is to visualize what the current components are and what they do, or at least what I think they are and do.  By doing this I get an instant framework for my next steps plus if I have made any mistakes other individuals can comment on that and I can then make the appropriate changes to my understanding and thought process.
+
+With that in mind here is what I have come up with as the current architecture:
+![](https://github.com/wjlove/General/blob/main/Documents/IAQ%20Current%20Design.jpg?raw=true)
+
+
+## Current IAQ design features
+
+While it might appear that there is a lot going on here it is really not all that complicated.  This is because for the bulk of what is shown the balena ecosystem is handling the details and we do not have to worry about it.  I have included those details in the diagram for my own education and for completeness going forward.  For the reader I will touch on them below and where appropriate include links to balena’s own documentation with details. Again, you don’t really need to be an expert in any of these areas but I consider it helpful to have at least a working understanding of the computing environment I am in and to take advantage of as many of the appropriate features it provides as possible.
+
+### BalenaOS/Kernel
+
+The [balenaOS](https://www.balena.io/docs/reference/OS/overview/2.x/) is the underlying operating system that all my software will run on.  It has been optimized in many ways to help run application software on lots of devices.   By this I mean not only a plethora of different types of computers but also many of them at once!  This latter bit you will see often mentioned as “Fleets” in their documentation and is one of the prominent selling points of using the balena infrastructure.  While it may appear that managing a group of devices that are exactly the same and running the same software is easy, the reality of this is significantly different, it's hard.
+
+#### _BalenaEngine and Systemd/User Space_
+These are bits of software that run on top of the baleanOS.  The [baleanEngine](https://www.balena.io/engine/) handles the management of specific “chunks” of software in a rather special way called [software containers](https://www.docker.com/resources/what-container).  I have mentioned this earlier in my posts but in case you want to review it again I have included the previous link. I don’t really need to know much about the engine itself but the use of software containers will be a big component in my software design.   [Systemd](https://en.wikipedia.org/wiki/Systemd) is a relatively generalistic bit of software that does a *ton* of the configuration and housekeeping chores for the operating system.  Again, this is something that is good to know about because of the features it provides, but again I don’t need to be an expert.  [User Space](https://www.computerhope.com/jargon/u/user-space.htm) is really a term used to describe a place where generic programs run on top of the operating system.  Since I will be using the balena environment almost exclusively I don’t have to worry about where my programs run, balena will just take care of it.
+
+### Containers
+
+Ah yes, back to containers…  This is where the bulk of my software work will happen and is indeed where the bulk of the components of the IAQ application.   While the term container is relatively generic referring to running software in a protected environment, from my point of view in the balena system there are some containers that are categorized differently.
+
+#### _Supervisor - Special_
+The [supervisor container](https://www.balena.io/docs/reference/supervisor/supervisor-api/) is responsible for managing all the other running containers and includes many of the functions that allow for remote management of the entire software system.  Yet again, this is something I don’t really care about other than it provides a number of useful tools for maintaining my application while it is running. Follow the link if you want to know more.
+
+#### _Blocks_
+These are chucks of software or containers that perform very specific functions.  The concept is not new and balena provides a good overview of what they are trying to accomplish with them [here](https://www.balena.io/blog/introducing-balenablocks-jumpstart-your-iot-app-development/).  The basic idea here is that by connecting multiple blocks together I can create something that is “...greater than the sum of its parts…” or in this case, blocks. The IAQ application does this by using blocks to handle commonly desired functions while it handles specific ones not found in other blocks.  For prototyping an application this is hugely advantageous as I do not have to concern myself with the boring bits and instead focus on the exciting stuff that does not already exist.  Balena’s goal is to have so many block functions available that it is absolutely possible to create an entire application without having to write any custom software.  When that happens then the exciting stuff is your own creativity.
+
+I should also note that the blocks do not necessarily have to come from balena.  There are other sources of generic containerised software chunks such as  [dockerHub](https://hub.docker.com/).  However, blocks found on the balenaHub tend to have complementary options or features with each other.
+
+I’ll quickly touch on the blocks used by IAQ:
+
+- [MQTT:](https://hub.docker.com/_/eclipse-mosquitto)passes information or data to other blocks or chunks of software.  Not actually a balenaHub block and an example of a generic container 
+- [Connector:](https://github.com/balenablocks/connector) acts like a translator of data/information between blocks that don’t speak the same language
+- [InfluxDB:](https://hub.docker.com/_/influxdb)  a database that is very good at handling a specific type of information know as “time-series data”  Not balena specific
+- [Dashboard:](https://github.com/balenablocks/dashboard) a tool to create visually pleasing way of presenting complex information
+- [WiFi-Connect:](https://github.com/balenablocks/wifi-connect) tool to manage connecting devices wirelessly to a local network
+
+You can look on the [baleanHub](https://hub.balena.io/) web site under Blocks to find more information about each of these blocks plus a list of other blocks currently available for use in the balena environment.   While there you can also find other examples of blocks in use in various working Projects or Fleets. 
+
+#### _IAQ_
+Now all that is left is the IAQ code itself.  Here I found all the software that provides functions that can not be found in either the underlying infrastructure or in the various blocks.  I can summarize these as follows:
+ 
+- Discover and initialize the air quality sensors.  Currently there are three supported sensors and at least one needs to be present to provide any meaningful information.  Some sensors need calibration in order to function correctly.
+- Discover and initialize the display on the device.  There are three options for a display, a single Led, Led light bar and a Led matrix.  Where/when appropriate provider some user feedback about the device configuration.
+- Collect and normalize sensor data from all the discovered sensor devices
+- Calculate the air quality indexes from the available sensor data.  This is calculated by applying simple and well known methods for air quality quantification.
+- Update displays with air quality index information and provide a visual indication if there is a reason for concern. 
+- Package up all the information collected so that it can be sent to the database block, then send it.
+
+## Building Upon the architecture
+
+Tomorrow I will discuss how I am going to screw all this up, I mean expand upon this for my project… :)
