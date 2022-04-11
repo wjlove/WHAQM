@@ -1,53 +1,58 @@
 version: '2'
+#
 volumes:
     sense-data:
     dashboard-data:
     iaq-data:
-    settings:
+    browser-settings:
+#
 services:
   influxdb:
     restart: always
-    #image: arm32v7/influxdb@sha256:2fed9b09a672cab330ac3ea1f03616e6821f2235bda64d549f605ef0d7081911
     build: ./influx
     volumes:
       - 'sense-data:/var/lib/influxdb'
+#
   dashboard:
-    # image: balenablocks/dashboard
-    build: ./dashboard
     restart: always
+    build: ./dashboard
     volumes:
         - 'dashboard-data:/data'
     ports:
         - '80'
+#
   iaq:
+    restart: on-failure
     build: ./iaq
     privileged: true
-    restart: on-failure
     volumes:
         - 'iaq-data:/data/my_data'
+#
   connector:
-    image: balenablocks/connector
     restart: always
+    image: balenablocks/connector
     labels:
       io.balena.features.balena-api: '1'
     privileged: true
+#
   mqtt:
-    # image: eclipse-mosquitto:1.6.15
+    restart: always 
     build: ./mqtt
     ports:
-      - "1883:1883"
-    restart: always 
-  #wifi-connect:
-   # image: balenablocks/wifi-connect:armv7hf
-   # restart: always
-   # network_mode: host
-   # privileged: true
-   # labels:
-   #   io.balena.features.dbus: "1"
-   #   io.balena.features.firmware: "1"
-   # environment:
-   #   PORTAL_LISTENING_PORT: 8080
-   #   ACTIVITY_TIMEOUT: 120
+      - "1883:1883" # main database device needs this to allow remote connections
+#
+  wifi-connect:
+    restart: always
+    image: balenablocks/wifi-connect:armv7hf
+    network_mode: host
+    privileged: true
+    labels:
+      io.balena.features.dbus: "1"
+      io.balena.features.firmware: "1"
+    environment:
+      PORTAL_LISTENING_PORT: 8080
+      ACTIVITY_TIMEOUT: 120
+#
   browser:
     image: balenablocks/browser
     privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
@@ -56,14 +61,4 @@ services:
       - '5011'
       - '35173'
     volumes:
-      - 'settings:/data' # Only required if using PERSISTENT flag (see below)
-  # mdns-advertise:
-   # image: ghcr.io/nucleardreamer/mdns-advertise
-   # restart: "always"
-   # privileged: true
-   # network_mode: host
-   # labels:
-   #   io.balena.features.dbus: '1'
-   # environment:
-   #   DBUS_SYSTEM_BUS_ADDRESS: 'unix:path=/host/run/dbus/system_bus_socket'
-   #   MDNS_TLD: 'balena-iaq-pi3.local'
+      - 'browser-settings:/data' # Only required if using PERSISTENT flag (see below)
