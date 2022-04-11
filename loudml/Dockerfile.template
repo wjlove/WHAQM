@@ -1,0 +1,3 @@
+FROM loudml/loudml:1.6.0
+
+COPY ./etc/loudml.yml  /etc/loudml/config.yml
