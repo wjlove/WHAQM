@@ -1,1 +1,1 @@
-This is a test to repalce the old one
+This is a test to replace the old one
