@@ -9,6 +9,7 @@ A new alerting system will provide not only warnings about current hazardous con
 
 ## Hardware - 
 (need links and detail)
+
     - Raspi 3 or 4 (good luck)
     - 7in Touch Screen Display
     - Smarti Pi Touch Pro Case (Small)
@@ -22,6 +23,7 @@ Detailed discussion exctracted from the Blog posts goes here
 
 ## Software
 (multiple balena/external blocks)
+
     - IAQ balena block
     - InfluxDB docker container
     - dashboard balena block
