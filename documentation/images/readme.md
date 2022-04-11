@@ -1,0 +1,1 @@
+**Final resting place of images related to the documentation of the WHAQM project**
