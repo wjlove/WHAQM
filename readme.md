@@ -13,5 +13,7 @@ A new alerting system will provide not only warnings about current hazardous con
 
 ## Configuration
 
-## Missing
+## Missing 
+
+All of the above :) ^^^^
 
