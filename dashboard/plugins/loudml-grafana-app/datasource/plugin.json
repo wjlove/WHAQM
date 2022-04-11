@@ -1,0 +1,12 @@
+{
+  "type": "datasource",
+  "name": "Loud ML Datasource",
+  "id": "loudml-datasource",
+  "metrics": true,
+  "info": {
+    "logos": {
+      "small": "../loudml-grafana-app/img/logo.png",
+      "large": "../loudml-grafana-app/img/logo.png"
+    }
+  }
+}
