@@ -390,7 +390,7 @@
       "type": "grafana-clock-panel"
     }
   ],
-  "refresh": "30s",
+  "refresh": "1m",
   "schemaVersion": 35,
   "style": "dark",
   "tags": [
@@ -407,7 +407,7 @@
     "hidden": true,
     "nowDelay": ""
   },
-  "timezone": "",
+  "timezone": "browser",
   "title": "Top",
   "uid": "E8KPiJy7k",
   "version": 29,
