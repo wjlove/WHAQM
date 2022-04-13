@@ -21,3 +21,4 @@ At its core, this project is simply an extension of the great work done on the b
 - Ability to display aggregated measurements from multiple devices
 - Ability to predict air quality conditions based on previous measurement
  
+ More soon....
