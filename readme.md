@@ -21,4 +21,41 @@ At its core, this project is simply an extension of the great work done on the b
 - Ability to display aggregated measurements from multiple devices
 - Ability to predict air quality conditions based on previous measurement
  
- More soon....
+## Hardware Selection
+
+ There are a number of options when it comes to selecting hardware for the IAQ. Cost, availability and performance are some factors to consider when choosing the parts below.
+
+### Choosing your Pi
+
+
+
+
+This project currently runs on a Raspberry Pi, so you'll need one of the following compatible devices:
+
+- [Pi 3B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/)
+- [Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/)
+- [Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+
+Note: If you plan on having a significant number of remote sensor devices like those from the balenAIR project you should consider using a Pi 4 as the prediction software can be rather compute intensive.
+
+### The Display and Case
+
+There are many options for choosing a case that will house the Raspberry Pi, the touchscreen device and all the sensors or you can make your own.  After some review I settled on the [SmartiPi Touch Pro - Small](https://smarticase.com/products/smartipi-touch-pro) and the original [Raspberry Pi Touch Display](https://www.raspberrypi.com/products/raspberry-pi-touch-display/).  Both are easily available for purchase and well supported.  
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/case-display.jpg?raw=true)
+
+### Sensors
+
+The sensors evaluate your air and return data that is used to deterime your air quality score. This project, like balenAIR,  supports the three different sensors listed below. You can choose to have one, two, or all three present in your device, depending on your budget and air quality analysis needs.
+
+| Sensor | Detects | Description |  Specifications (approx.) |
+| ------------ | ----------- | ----------- | ----------- |
+| [PMSA003I](https://www.adafruit.com/product/4632) | Smoke, dust, dirt, pollen particles | laser-scattering type  | 0.3-1.0,1.0-2.5, 2.5-10 Micrometer particles |
+| [SCD-40](https://www.adafruit.com/product/5187) | Exhaled breath and burning fossil fuels |  CO2 photoacoustic sensor CO2 (plus temp and humidity)  | 400 - 2000 PPM |
+| [SGP-30](https://www.adafruit.com/product/3709) | Gasses emitted by solid and liquid products  |  VOC (and eCO2) Hot-plate MOX sensor | eCO2 400-60,000 ppm, TVOC 0-60,000 ppb |
+
+All of these sensors use the popular I2C protocol to communicate with the Pi and include [Qwiic](https://www.sparkfun.com/qwiic) connectors so you don't need to do any soldering to use these sensors.
+
+### Sensor Carrier Board
+
+### Miscellaneous Items
