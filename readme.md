@@ -1,49 +1,23 @@
-**An attempt to expand on the excellent work of balenAIR**
 
-#Pre-Alpha work - You have been warned! This is only the outline for the readme
+ ![The Whole Home Air Quality Monitoring Project](https://github.com/wjlove/WHAQM/blob/main/documentation/images/two-display-v2.jpg?raw=true)
 
-This project is new iteration on the balenAIR project and attempts to add some enhanced functionality including the the ability
-to have a graphical UI local to the device and the ability to collect information from other devices in the balenAIR family.  By itself it is a completely contained air quaility monitor with a navigatable touch screen display.  When combined with other devices it comes a centralized plaform for displaing the air quality of multiple locations along with historical information.   
+**An extension of the balenAIR project that allows for multiple sensors in various location within your home or any indoor location**
 
-A new alerting system will provide not only warnings about current hazardous conditions but also display furture trending information to predict possible hazardous situations. 
+#Whole Home Air Quality Monitoring Project
 
-## Hardware - 
-(need links and detail)
+## Reasoning
 
-    - Raspi 3 or 4 (good luck)
-    - 7in Touch Screen Display
-    - Smarti Pi Touch Pro Case (Small)
-    - PMSA0031
-    - SCD-40
-    - SQP-30
-    - Qwiic wire jumpers
-    - Carrier PCB
+I was wondering if the quality of the air in my office was affecting my work and was looking to measure the levels of hazardous gasses while my office door was closed.   There are many products out there that one can purchase that will monitor indoor air quality but as a tinkerer I wanted to build one myself.  After some online research I came across the excellent baleaAIR (https://github.com/balena-io-playground/balena-iaq) project and thought this might be fun to build so I started constructing one.  
 
-Detailed discussion exctracted from the Blog posts goes here
+During the process of testing my device I noticed that my measurements were wildly different throughout the day and often in the danger zones while working in my office.  I thought I’d done everything correctly so what was wrong?  As a test I moved my device to another room in my home and what a difference, these measurements were stable and “safe”.  With those results in hand, I went to several other rooms in my home and noticed each one produced results that were slightly different generally and fluctuated during the day.   It is from here I wondered if having a small sensor in each room, monitored by a central location might be useful and thus this project was born.
 
-## Software
-(multiple balena/external blocks)
+## New Features
 
-    - IAQ balena block
-    - InfluxDB docker container
-    - dashboard balena block
-    - connector balean block
-    - MQTT docker container
-    - wifi-connect balena block
-    - bowser balean block
+At its core, this project is simply an extension of the great work done on the balenAIR project and adds the following features:
 
-Detailed discussion including balean Cloud options and variables goes here.
-
-
-## Configuration
-
-### Basic Setup
-- Changes to various config files shouldn't be necessary
-- Change device name
-
-### Additional Devices
-- 
-## Missing 
-
-All of the above :) ^^^^
-
+- A standalone balenAIR like device with a touchscreen display
+- A centralized balenAIR like device with a touchscreen display
+- Ability to collect data from multiple air quality devices
+- Ability to display aggregated measurements from multiple devices
+- Ability to predict air quality conditions based on previous measurement
+ 
