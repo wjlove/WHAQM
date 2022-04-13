@@ -1,9 +1,9 @@
 
- ![The Whole Home Air Quality Monitoring Project](https://github.com/wjlove/WHAQM/blob/main/documentation/images/two-display-v2.jpg?raw=true)
+ ![The Whole Home Air Quality Monitoring Project](https://github.com/wjlove/WHAQM/blob/main/documentation/images/two-display-sidebyside.jpg?raw=true)
 
-**An extension of the balenAIR project that allows for multiple sensors in various location within your home or any indoor location**
+*An extension of the balenAIR project that allows for multiple sensors in various location within your home or any indoor location*
 
-#Whole Home Air Quality Monitoring Project
+# Whole Home Air Quality Monitoring Project
 
 ## Reasoning
 
