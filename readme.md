@@ -65,3 +65,15 @@ As it currently stands this design is not ideal as the amount of heat generated 
 ### Miscellaneous Items
 
 Additionally you will need some SparkFun qwiic cables to connect the sensors together [100mm QT to QT cable](https://www.adafruit.com/product/4210) and a qwiic to female header cable to connect the sensors to the Raspberry Pi you selected [Qwiic to female header cable](https://www.adafruit.com/product/4397).  Lastly you will need a way to affix the sensors to the carrier board, I used some M2 screws and bolts but you could also use plastic spacers or double sided tape but I wouldn’t recommend the latter.
+
+### Putting it All Together
+
+I won’t go into much detail about setting up the SmartiPi case and installing the Raspberry Pi touchscreen as those details can be found on the [SmartiCase web site](https://smarticase.com/)  Installing your Raspberry Pi of choice and the sensor carrier board on the rear of the case is done using the supplied screws.  You may want to attach the power adapter before installing the carrier board as it is significantly harder to do so with that installed. 
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/case-with-power-pi.jpg?raw=true) *Install power connector first...*
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/case-power-pi-sensors.jpg?raw=true) *...then the sensors.*
+
+Don’t put the back cover on just yet, we have to install the software and that requires access to the Raspberry Pi in the back.  
+
+
+## Software Setup
