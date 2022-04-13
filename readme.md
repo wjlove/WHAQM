@@ -62,7 +62,6 @@ In order to install the sensors inside the SmartiPi case they need to be install
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/carrier-board.jpg?raw=true) *Carrier board with holes*
 
 As it currently stands this design is not ideal as the amount of heat generated internally by both the Raspi and the touchscreen affect  the temperature measurements provided by the SCD-40 by as much as 5 degrees.  Various insulating mitigations can be applied to the case and carrier board to reduce this effect but my results to date have been varied.   The case does come with an optional fan which does resolve the issue but the additional noise created by it was unacceptable to me.
-
-
-
 ### Miscellaneous Items
+
+Additionally you will need some SparkFun qwiic cables to connect the sensors together [100mm QT to QT cable](https://www.adafruit.com/product/4210) and a qwiic to female header cable to connect the sensors to the Raspberry Pi you selected [Qwiic to female header cable](https://www.adafruit.com/product/4397).  Lastly you will need a way to affix the sensors to the carrier board, I used some M2 screws and bolts but you could also use plastic spacers or double sided tape but I wouldn’t recommend the latter.
