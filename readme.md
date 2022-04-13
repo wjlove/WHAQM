@@ -77,3 +77,5 @@ Don’t put the back cover on just yet, we have to install the software and that
 
 
 ## Software Setup
+
+The software included here is designed to be deployed using the balena Cloud infrastructure.  More on this process and various configuration options will be added shortly.
