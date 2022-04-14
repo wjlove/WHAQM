@@ -14,6 +14,8 @@ services:
     build: ./influx
     volumes:
       - 'sense-data:/var/lib/influxdb'
+    ports:
+      - 8086:8086 # Enable this for remote testing
 #
 # LoudML engine works but Grafana conflicts and bugs not yet resolved
 #  loudml:
@@ -77,6 +79,6 @@ services:
       - '35173'
     environment:
       KIOSK: 1
-      LAUNCH_URL: "http://dashboard.local" # Force browser block to find only the dashboard w/o modifying its code
+      # LAUNCH_URL: "http://dashboard.local" # Force browser block to find only the dashboard w/o modifying its code - doesn't work this way
     volumes:
       - 'browser-settings:/data' # Only required if using PERSISTENT flag (see below)
