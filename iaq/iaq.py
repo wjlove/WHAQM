@@ -103,7 +103,7 @@ except Exception as e:
 # grafana graphing in a multi device setup while using mqtt bridging.  This could/should be repalced
 # with some magic at the backend
 # 
-pretty_host_name = os.getenv('BALENA_DEVICE_NAME_AT_INIT', 'No Room Assigned')
+pretty_host_name = os.getenv('WHAQM_SENSOR_NAME', 'No Room Assigned')
 pretty_host_name = pretty_host_name.replace("/", "_")
 pretty_host_name = pretty_host_name.replace("-", " ")
 pretty_host_name = pretty_host_name.replace("$", "_")
@@ -800,6 +800,9 @@ while True:
     logger.debug("Using index: {0}".format(iaq_idx))
     # Display on LED matrix
     display_index(iaq_idx)
+    #
+    # Inject the WHAQM name into the MQTT data flow
+    scd["WHAQMname"] = pretty_host_name
     # Publish all data to MQTT
     #
     try:
