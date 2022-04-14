@@ -1,4 +1,4 @@
-version: '2'
+version: '2.2'
 #
 volumes:
     sense-data:
@@ -8,13 +8,14 @@ volumes:
     loudml-data:
 #
 services:
+#
   influxdb:
     restart: always
     build: ./influx
     volumes:
       - 'sense-data:/var/lib/influxdb'
 #
-# Grafana conflicts not yet resolved
+# LoudML engine works but Grafana conflicts and bugs not yet resolved
 #  loudml:
 #    restart: always
 #    build: ./loudml
@@ -51,7 +52,7 @@ services:
     restart: always 
     build: ./mqtt
     ports:
-      - "1883:1883" # main database device needs this to allow remote connections
+      - "1883:1883" # main database device needs this to allow remote connections from other sensors
 #
 # Configuration conflicts not yet resolved
 #  wifi-connect:
