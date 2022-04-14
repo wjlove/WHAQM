@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1649956265176,
+  "iteration": 1649958235480,
   "links": [
     {
       "asDropdown": false,
@@ -186,8 +186,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "Bill's New Office",
+          "value": "Bill's New Office"
         }
       },
       "targets": [
@@ -272,7 +272,7 @@
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "hue",
             "hideFrom": {
               "graph": false,
               "legend": false,
@@ -285,8 +285,8 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false
+            "showPoints": "never",
+            "spanNulls": true
           },
           "mappings": [],
           "max": 3000,
@@ -340,8 +340,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "Bill's New Office",
+          "value": "Bill's New Office"
         }
       },
       "targets": [
@@ -350,10 +350,41 @@
             "type": "influxdb",
             "uid": "KYaOzzsnk"
           },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
           "query": "SELECT mean(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "time_series"
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "title": "$location",
@@ -388,7 +419,7 @@
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
-            "gradientMode": "none",
+            "gradientMode": "hue",
             "hideFrom": {
               "graph": false,
               "legend": false,
@@ -401,8 +432,8 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false
+            "showPoints": "never",
+            "spanNulls": true
           },
           "mappings": [],
           "max": 1000,
@@ -454,8 +485,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "Bill's New Office",
+          "value": "Bill's New Office"
         }
       },
       "targets": [
@@ -464,10 +495,41 @@
             "type": "influxdb",
             "uid": "KYaOzzsnk"
           },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
           "query": "SELECT mean(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
-          "resultFormat": "time_series"
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
       "title": "$location",
@@ -486,12 +548,11 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "tags": [],
           "text": [
-            "No Room Assigned"
+            "Bill's New Office"
           ],
           "value": [
-            "No Room Assigned"
+            "Bill's New Office"
           ]
         },
         "datasource": null,
@@ -499,7 +560,7 @@
         "description": null,
         "error": null,
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Device Location:",
         "multi": true,
         "name": "location",
@@ -519,8 +580,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "\"Bill's New Office\"",
+          "value": "\"Bill's New Office\""
         },
         "datasource": null,
         "definition": "SHOW TAG values  with KEY  = \"topic\"",
@@ -560,5 +621,5 @@
   "timezone": "browser",
   "title": "Measurements by Location",
   "uid": "7isudks7z",
-  "version": 2
+  "version": 4
 }
