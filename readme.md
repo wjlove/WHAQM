@@ -77,17 +77,32 @@ I won’t go into much detail about setting up the SmartiPi case and installing 
 Don’t put the back cover on just yet, we have to install the software and that requires access to the Raspberry Pi in the back.  
 
 
-## Software Setup
+This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project and you want to learn more about balena Cloud, we recommend familiarizing yourself by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.   While working with the tutorial keep in mind that the Raspberry Pi device type you choose to use while building your WHAQM display, you will need to select the appropriate one while creating your fleet. Next you can create a Fleet in your balenaCloud dashboard and `balena push` this code to it the traditional way.
 
-This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project, we recommend familiarizing yourself with BalenaCloud by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.  While working with the tutorial keep in mind that the Raspberry Pi device type you choose to use while building your WHAQM display, you will need to select the appropriate one while creating your fleet. You should have something like this on your balena dashboard.
+**_Or…._**
 
-![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-Fleet-no-Devices.png?raw=true) _No devices yet_
-
- After you have added your first device to your fleet and installed the balena CLI you can return here to continue deploying the software by adding it as a release.
-
-You can deploy this app to your new balenaCloud fleet in one click using the button below:
+You can deploy this app  in one click using the button below:
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/wjlove/WHAQM)
 
-Or, you can create a Fleet in your balenaCloud dashboard and `balena push` this code to it the traditional way.
+This will automagiclly allow you to create, or use an existing fleet, install the appropriate software and prepare everything for your first device deployment.  Note:  this will take some time but you can follow the progress in the “Releases” window on the right:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-Build-in-Progress.jpg?raw=true) _Build in progress_
+
+When everything is complete you should see:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-waiting-for-device.jpg?raw=true) _Ready for your first device!_
+
+Now you can add your first device by clicking on the “+ Add device” button.  While following the Instructions on the right be sure to remember the device type you used to build your display.  If you plan on using your device’s wireless networking ability be sure to select “Network Connection -> Wifi + Ethernet” and enter the appropriate network information.
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-add-device.jpg?raw=true)
+
+((this section needs work as the Instructions on the right are not really clear on how to flash a device/SD card.  You need to either press the “Flash button” which automatically starts Etcher if it is installed, or select from the pull down to download the image file and then flash it to the SD card with your software of choice.))
+
+
+
+
+
+
+### Using the software
 
