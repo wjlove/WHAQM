@@ -76,6 +76,7 @@ I won’t go into much detail about setting up the SmartiPi case and installing 
 
 Don’t put the back cover on just yet, we have to install the software and that requires access to the Raspberry Pi in the back.  
 
+## Software Setup
 
 This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project and you want to learn more about balena Cloud, we recommend familiarizing yourself by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.   While working with the tutorial keep in mind that the Raspberry Pi device type you choose to use while building your WHAQM display, you will need to select the appropriate one while creating your fleet. Next you can create a Fleet in your balenaCloud dashboard and `balena push` this code to it the traditional way.
 
