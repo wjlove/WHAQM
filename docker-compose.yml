@@ -59,7 +59,7 @@ services:
   wifi-connect:
     restart: always
     image: balenablocks/wifi-connect:armv7hf
-   network_mode: host
+    network_mode: host
     privileged: true
     labels:
       io.balena.features.dbus: "1"
