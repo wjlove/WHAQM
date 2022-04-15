@@ -803,6 +803,7 @@ while True:
     #
     # Inject the WHAQM name into the MQTT data flow
     scd["WHAQMname"] = pretty_host_name
+    # logger.debug("Publishing to MQTT with WHAQM name:{}".format(pretty_host_name))
     # Publish all data to MQTT
     #
     try:
