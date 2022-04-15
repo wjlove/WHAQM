@@ -10,7 +10,7 @@
 
 I was wondering if the quality of the air in my office was affecting my work and was looking to measure the levels of hazardous gasses while my office door was closed.   There are many products out there that one can purchase that will monitor indoor air quality but as a tinkerer I wanted to build one myself.  After some online research I came across the excellent baleaAIR (https://github.com/balena-io-playground/balena-iaq) project and thought this might be fun to build, so I started constructing one.  
 
-During the process of testing my device I noticed that my measurements were wildly different throughout the day and often in the danger zones while working in my office.  I thought I’d done everything correctly so what was wrong?  As a test I moved my device to another room in my home and what a difference, these measurements were stable and “safe”.  With those results in hand, I went to several other rooms in my home and noticed each one produced results that were slightly different generally and fluctuated during the day.   It is from here I wondered if having a small sensor in each room, monitored by a central location might be useful and thus this project was born.
+During the process of testing my device I noticed that my measurements were wildly different throughout the day and often in the danger zones while working in my office.  I thought I’d done everything correctly so what was wrong?  As a test I moved my device to another room in my home and what a difference, these measurements were stable and “safe”.  With those results in hand, I went to several other rooms in my home and noticed each one produced results that were slightly generally different and fluctuated during the day.   It is from here I wondered if having a small sensor in each room, monitored by a central location might be useful and thus this project was born.
 
 ## New Features
 
@@ -78,15 +78,15 @@ Don’t put the back cover on just yet, we have to install the software and that
 
 ## Software Setup
 
-This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project and you want to learn more about balena Cloud, we recommend familiarizing yourself by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.   While working with the tutorial keep in mind that the Raspberry Pi device type you choose to use while building your WHAQM display, you will need to select the appropriate one while creating your fleet. Next you can create a Fleet in your balenaCloud dashboard and `balena push` this code to it the traditional way.
+This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to necessary to create a new fleet and new devices. If this is your first time deploying a project and you want to learn more about balena Cloud, I recommend familiarizing yourself by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.   While working with the tutorial keep in mind the Raspberry Pi device type you choose to use while building your WHAQM display as you will need to select the appropriate one while creating your fleet. After you have created a fleet with devices in your balenaCloud dashboard you can `balena push` this code to it the traditional way.
 
 **_Or…._**
 
-You can deploy this app  in one click using the button below:
+You can deploy this project in one click using the button below:
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/wjlove/WHAQM)
 
-This will automagiclly allow you to create, or use an existing fleet, install the appropriate software and prepare everything for your first device deployment.  Note:  this will take some time but you can follow the progress in the “Releases” window on the right:
+This will automagiclly allow you to create (or use an existing) fleet, install the appropriate software and prepare everything for your first device deployment.  Pressing the button will walk you thru the necessary steps to get started. After providing the needed information balena Cloud will collect and build the appropriate software for your devices.  This will take some time, but you can follow the progress in the “Releases” window on the right:
 
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-Build-in-Progress.jpg?raw=true) _Build in progress_
 
@@ -98,12 +98,33 @@ Now you can add your first device by clicking on the “+ Add device” button. 
 
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-add-device.jpg?raw=true)
 
-((this section needs work as the Instructions on the right are not really clear on how to flash a device/SD card.  You need to either press the “Flash button” which automatically starts Etcher if it is installed, or select from the pull down to download the image file and then flash it to the SD card with your software of choice.))
+((this section of my docuemnt needs work as the Instructions on the right are not completely clear on how to flash a device/SD card.  You need to either press the “Flash" button which automatically starts Etcher (if it is installed, if it is not installed then there are more steps), or select from the pull down nest to the "Flash" button to download the image file, ...and then flash it to the SD card with your software of choice.))
+
+Once you have your freshly flashed SD card, install it in the Raspberry Pi:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/install-sd.jpg?raw=true)_SD card in back of the Raspberry Pi_
+
+Power on the device and wait for it to boot up.  The first time the device powers up will take a significant amount of time as it needs to get an initial copy of the WHAQM software.  During this first step you should see the balena splash screen on your device:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/touch_balena_logo_no_keyboard.jpg) _Nice Logo…_
+
+You can also verify that the software is being loaded on the device correctly by going to the balena Cloud dashboard and looking for a new device in the balena fleet you created.  In this example case, there is a device called “autumn-rock” and the “Status” is currently “Updating”:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-updating-device.jpg?raw=true) 
+
+When the initial software has completed the loading process the “Status” will change to “Online” and you can click on the device name to get more detailed information about the device and the software that is running:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-device-running.jpg?raw=true)_…you should see something like this…_
+
+…and you should see the General/Top Screen on your WHAQM device:
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/better-first-boot.jpg?raw=true) _…nothing more to do here!_
 
 
 
+### Using the WHAQM software
+
+### Troubleshooting
 
 
-
-### Using the software
 
