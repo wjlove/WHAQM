@@ -21,8 +21,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1649958235480,
+  "id": 3,
+  "iteration": 1650036214617,
   "links": [
     {
       "asDropdown": false,
@@ -186,8 +186,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "Bill's New Office",
-          "value": "Bill's New Office"
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -241,6 +241,7 @@
         }
       ],
       "title": "$location",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -340,8 +341,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "Bill's New Office",
-          "value": "Bill's New Office"
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -388,6 +389,7 @@
         }
       ],
       "title": "$location",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -485,8 +487,8 @@
       "scopedVars": {
         "location": {
           "selected": true,
-          "text": "Bill's New Office",
-          "value": "Bill's New Office"
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -533,6 +535,7 @@
         }
       ],
       "title": "$location",
+      "transparent": true,
       "type": "timeseries"
     }
   ],
@@ -547,13 +550,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": [
-            "Bill's New Office"
-          ],
-          "value": [
-            "Bill's New Office"
-          ]
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         },
         "datasource": null,
         "definition": "SHOW TAG values  with KEY  = \"topic\"",
@@ -580,8 +579,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "\"Bill's New Office\"",
-          "value": "\"Bill's New Office\""
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         },
         "datasource": null,
         "definition": "SHOW TAG values  with KEY  = \"topic\"",

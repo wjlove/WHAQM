@@ -21,8 +21,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1649765646535,
+  "id": 2,
+  "iteration": 1650036583791,
   "links": [
     {
       "asDropdown": false,
@@ -30,10 +30,24 @@
       "includeVars": false,
       "keepTime": false,
       "tags": [
-        "Main"
+        "Top"
       ],
       "targetBlank": false,
-      "title": "Home",
+      "title": "Top",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Detailed"
+      ],
+      "targetBlank": false,
+      "title": "Detailed Sensor Information",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
@@ -52,16 +66,16 @@
         "x": 20,
         "y": 0
       },
-      "id": 35,
+      "id": 30,
       "options": {
         "bgColor": "transparent",
         "clockType": "12 hour",
         "countdownSettings": {
-          "endCountdownTime": "2022-03-30T21:31:23-04:00",
+          "endCountdownTime": "2022-03-30T21:15:36-04:00",
           "endText": "00:00:00"
         },
         "countupSettings": {
-          "beginCountupTime": "2022-03-30T21:31:23-04:00",
+          "beginCountupTime": "2022-03-30T21:15:36-04:00",
           "beginText": "00:00:00"
         },
         "dateSettings": {
@@ -98,17 +112,9 @@
         "x": 0,
         "y": 2
       },
-      "id": 2,
+      "id": 4,
       "panels": [],
-      "repeat": "location",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
-        }
-      },
-      "title": "$location Measurements",
+      "title": "Measurements Across All Locations",
       "type": "row"
     },
     {
@@ -116,97 +122,74 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "Healthy"
-                },
-                "to": 49
-              },
-              "type": "range"
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            {
-              "options": {
-                "from": 50,
-                "result": {
-                  "index": 1,
-                  "text": "Moderate"
-                },
-                "to": 74
-              },
-              "type": "range"
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
             },
-            {
-              "options": {
-                "from": 75,
-                "result": {
-                  "index": 2,
-                  "text": "Unhealthy"
-                },
-                "to": 99
-              },
-              "type": "range"
-            }
-          ],
-          "max": 99,
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "max": 100,
           "min": 0,
-          "noValue": "No Information",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "dark-yellow",
-                "value": 50
-              },
-              {
-                "color": "dark-red",
-                "value": 75
+                "color": "red",
+                "value": 80
               }
             ]
-          }
+          },
+          "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 5,
+        "h": 8,
+        "w": 8,
         "x": 0,
         "y": 3
       },
-      "id": 4,
+      "id": 8,
       "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "7.5.15",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "tooltipOptions": {
+          "mode": "single"
         }
       },
       "targets": [
         {
+          "alias": "$tag_topic",
           "datasource": {
             "type": "influxdb",
             "uid": "KYaOzzsnk"
@@ -220,7 +203,13 @@
             },
             {
               "params": [
-                "null"
+                "topic"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
               ],
               "type": "fill"
             }
@@ -228,7 +217,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE $timeFilter GROUP BY time($__interval), \"topic\" fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -249,70 +238,52 @@
           "tags": []
         }
       ],
-      "title": "Air Quality Index",
-      "type": "gauge"
+      "title": "Air Quality Indexes",
+      "transparent": true,
+      "type": "timeseries"
     },
     {
       "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "Healthy"
-                },
-                "to": 999
-              },
-              "type": "range"
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 3000,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            {
-              "options": {
-                "from": 1000,
-                "result": {
-                  "color": "dark-yellow",
-                  "index": 1,
-                  "text": "Moderate"
-                },
-                "to": 1999
-              },
-              "type": "range"
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
             },
-            {
-              "options": {
-                "from": 2000,
-                "result": {
-                  "color": "dark-red",
-                  "index": 2,
-                  "text": "Unhealthy"
-                },
-                "to": 5000
-              },
-              "type": "range"
-            }
-          ],
-          "max": 5000,
-          "min": 0,
+            "showPoints": "auto",
+            "spanNulls": false
+          },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "dark-yellow",
-                "value": 1000
-              },
-              {
-                "color": "dark-red",
-                "value": 2000
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -320,35 +291,29 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 5,
+        "h": 8,
+        "w": 8,
+        "x": 8,
         "y": 3
       },
-      "id": 6,
+      "id": 10,
       "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "7.5.15",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "tooltipOptions": {
+          "mode": "single"
         }
       },
       "targets": [
         {
+          "alias": "$tag_topic",
           "datasource": {
             "type": "influxdb",
             "uid": "KYaOzzsnk"
@@ -362,7 +327,13 @@
             },
             {
               "params": [
-                "null"
+                "topic"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
               ],
               "type": "fill"
             }
@@ -370,8 +341,6 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -392,69 +361,52 @@
         }
       ],
       "title": "CO2 (ppm)",
-      "type": "gauge"
+      "transparent": true,
+      "type": "timeseries"
     },
     {
       "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "dark-green",
-                  "index": 0,
-                  "text": "Healthy"
-                },
-                "to": 499
-              },
-              "type": "range"
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            {
-              "options": {
-                "from": 500,
-                "result": {
-                  "color": "dark-yellow",
-                  "index": 1,
-                  "text": "Moderate"
-                },
-                "to": 999
-              },
-              "type": "range"
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
             },
-            {
-              "options": {
-                "from": 1000,
-                "result": {
-                  "color": "dark-red",
-                  "index": 2,
-                  "text": "Unhealthy"
-                },
-                "to": 60000
-              },
-              "type": "range"
-            }
-          ],
-          "max": 1500,
-          "min": 0,
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "dark-yellow",
-                "value": 500
-              },
-              {
-                "color": "dark-red",
-                "value": 1000
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -462,35 +414,29 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 10,
+        "h": 8,
+        "w": 8,
+        "x": 16,
         "y": 3
       },
-      "id": 8,
+      "id": 12,
       "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom"
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "7.5.15",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "tooltipOptions": {
+          "mode": "single"
         }
       },
       "targets": [
         {
+          "alias": "$tag_topic",
           "datasource": {
             "type": "influxdb",
             "uid": "KYaOzzsnk"
@@ -504,7 +450,13 @@
             },
             {
               "params": [
-                "null"
+                "topic"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
               ],
               "type": "fill"
             }
@@ -512,8 +464,6 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -534,147 +484,30 @@
         }
       ],
       "title": "Total Volatile Organic Compounds (ppb)",
-      "type": "gauge"
+      "transparent": true,
+      "type": "timeseries"
     },
     {
+      "collapsed": false,
       "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "dark-orange",
-                  "index": 0
-                },
-                "to": 24
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 25,
-                "result": {
-                  "color": "dark-yellow",
-                  "index": 1
-                },
-                "to": 29
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 30,
-                "result": {
-                  "color": "dark-green",
-                  "index": 2
-                },
-                "to": 59
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 60,
-                "result": {
-                  "color": "dark-yellow",
-                  "index": 3
-                },
-                "to": 69
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 70,
-                "result": {
-                  "color": "dark-orange",
-                  "index": 4
-                },
-                "to": 100
-              },
-              "type": "range"
-            }
-          ],
-          "max": 100,
-          "min": 0,
-          "noValue": "No Information",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-orange",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 25
-              },
-              {
-                "color": "dark-green",
-                "value": 30
-              },
-              {
-                "color": "dark-yellow",
-                "value": 60
-              },
-              {
-                "color": "dark-orange",
-                "value": 70
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
       "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 15,
-        "y": 3
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
       },
-      "id": 12,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "7.5.15",
+      "id": 6,
+      "panels": [],
+      "repeat": "locations",
       "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "KYaOzzsnk"
-          },
-          "query": "SELECT \"humidity\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Humidity (%)",
-      "type": "gauge"
+      "title": "$locations Detail",
+      "type": "row"
     },
     {
       "datasource": null,
@@ -685,30 +518,16 @@
           },
           "decimals": 0,
           "mappings": [],
-          "max": 120,
-          "min": 32,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "yellow",
-                "value": 55
-              },
-              {
-                "color": "dark-green",
-                "value": 65
-              },
-              {
-                "color": "#EAB839",
+                "color": "red",
                 "value": 80
-              },
-              {
-                "color": "dark-red",
-                "value": 95
               }
             ]
           },
@@ -717,13 +536,16 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 3
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 12
       },
-      "id": 10,
+      "id": 22,
       "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -732,16 +554,265 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
+        "text": {},
+        "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
       "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT ((\"temperature\" * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Tempurature",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 12
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.15",
+      "scopedVars": {
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT \"humidity\"  FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Humidty",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 99,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 12
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^IAQ$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "value"
+      },
+      "pluginVersion": "7.5.15",
+      "scopedVars": {
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
+        }
+      },
+      "targets": [
+        {
+          "alias": "IAQ",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"IAQ\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND  $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "IAQ"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "IAQ",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 500
+              },
+              {
+                "color": "red",
+                "value": 1000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 12
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.15",
+      "scopedVars": {
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -767,7 +838,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT ((\"temperature\" * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT \"TVOC\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND  $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -775,21 +846,17 @@
             [
               {
                 "params": [
-                  "temperature"
+                  "TVOC"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "Temperature",
-      "type": "gauge"
+      "title": "TVOC (ppb)",
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -807,24 +874,29 @@
                 "value": null
               },
               {
+                "color": "#EAB839",
+                "value": 1000
+              },
+              {
                 "color": "red",
-                "value": 80
+                "value": 2000
               }
             ]
-          }
+          },
+          "unit": "short"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 0,
-        "y": 8
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 12
       },
-      "id": 14,
+      "id": 16,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -839,10 +911,10 @@
       },
       "pluginVersion": "7.5.15",
       "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -868,7 +940,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"particles 03um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT mean(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -876,16 +948,20 @@
             [
               {
                 "params": [
-                  "particles 03um"
+                  "co2"
                 ],
                 "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "Particles at 3um",
+      "title": "CO2 (ppm)",
       "type": "stat"
     },
     {
@@ -902,10 +978,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -913,150 +985,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 5,
-        "y": 8
-      },
-      "id": 16,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.15",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "KYaOzzsnk"
-          },
-          "query": "SELECT \"particles 05um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Particles at 5um",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 10,
-        "y": 8
-      },
-      "id": 18,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.5.15",
-      "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "KYaOzzsnk"
-          },
-          "query": "SELECT \"particles 10um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "title": "Particles at 10um",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 5,
+        "h": 4,
+        "w": 3,
         "x": 15,
-        "y": 8
+        "y": 12
       },
-      "id": 20,
+      "id": 24,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1074,10 +1008,10 @@
       },
       "pluginVersion": "7.5.15",
       "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -1086,13 +1020,13 @@
             "type": "influxdb",
             "uid": "KYaOzzsnk"
           },
-          "query": "SELECT \"particles 25um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT \"particles 03um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
         }
       ],
-      "title": "Particles at 25um",
+      "title": "Small Particles",
       "type": "stat"
     },
     {
@@ -1120,12 +1054,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 8
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 12
       },
-      "id": 22,
+      "id": 26,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1143,10 +1077,10 @@
       },
       "pluginVersion": "7.5.15",
       "scopedVars": {
-        "location": {
-          "selected": true,
-          "text": "Computer Room Servers",
-          "value": "Computer Room Servers"
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -1155,13 +1089,82 @@
             "type": "influxdb",
             "uid": "KYaOzzsnk"
           },
-          "query": "SELECT \"particles 50um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT \"particles 10um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND  $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
         }
       ],
-      "title": "Particles at 50um",
+      "title": "Medium Particals ",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 12
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.15",
+      "scopedVars": {
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT \"particles 50um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$locations$/) AND  $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Large Particles",
       "type": "stat"
     }
   ],
@@ -1169,20 +1172,44 @@
   "schemaVersion": 27,
   "style": "dark",
   "tags": [
-    "Detailed"
+    "Main"
   ],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": [
-            "Computer Room Servers"
-          ],
-          "value": [
-            "Computer Room Servers"
-          ]
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
+        },
+        "datasource": null,
+        "definition": "SHOW TAG values  with KEY  = \"topic\"",
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "allLocation",
+        "options": [],
+        "query": "SHOW TAG values  with KEY  = \"topic\"",
+        "refresh": 1,
+        "regex": ".*\\/(.*)",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "Multiple",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": null,
         "definition": "SHOW TAG values  with KEY  = \"topic\"",
@@ -1190,12 +1217,12 @@
         "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": "Select Locations",
+        "label": "Default Locations To View",
         "multi": true,
-        "name": "location",
+        "name": "locations",
         "options": [],
         "query": "SHOW TAG values  with KEY  = \"topic\"",
-        "refresh": 1,
+        "refresh": 2,
         "regex": ".*\\/(.*)",
         "skipUrlSync": false,
         "sort": 0,
@@ -1220,7 +1247,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Location Measurement Details",
-  "uid": "3AxE0Nynz",
-  "version": 31
+  "title": "Main Summary Page",
+  "uid": "QOrnqHsnz",
+  "version": 3
 }
