@@ -79,4 +79,15 @@ Don’t put the back cover on just yet, we have to install the software and that
 
 ## Software Setup
 
-The software included here is designed to be deployed using the balena Cloud infrastructure.  More on this process and various configuration options will be added shortly.
+This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project, we recommend familiarizing yourself with BalenaCloud by following the steps in this [Getting Started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial.  While working with the tutorial keep in mind that the Raspberry Pi device type you choose to use while building your WHAQM display, you will need to select the appropriate one while creating your fleet. You should have something like this on your balena dashboard.
+
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-Fleet-no-Devices.png?raw=true) _No devices yet_
+
+ After you have added your first device to your fleet and installed the balena CLI you can return here to continue deploying the software by adding it as a release.
+
+You can deploy this app to your new balenaCloud fleet in one click using the button below:
+
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/wjlove/WHAQM)
+
+Or, you can create a Fleet in your balenaCloud dashboard and `balena push` this code to it the traditional way.
+
