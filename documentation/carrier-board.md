@@ -1,7 +1,7 @@
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/sensors-on-carrier.jpg?raw=true)
 _Solution to install sensors inside TouchScreen case for WHAQM project_
 
-##WHAQM Sensor Carrier Board
+## WHAQM Sensor Carrier Board
 
 Ultimately the sensor carrier board will be 3D printed but for now I just wanted to get something in place that would keep the build process moving along.  I happened to have some extra PCB prototyping boards in my parts supply so using them was a simple short term solution.  The process would include identifying a usable board and then drilling some holes to affix the sensors to the board with some M2 sized screws.  Using screws for my initial designs facilitated the ability to move various sensors as I explored placement options.  This would be very instrumental later as thermal issues became more problematic than expected. 
 
