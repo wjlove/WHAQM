@@ -57,7 +57,7 @@ All of these sensors use the popular I2C protocol to communicate with the Pi and
 
 ### Sensor Carrier Board
 
-Installing the sensors inside the SmartiPi case requires a seperate sensor carrier board.  Ideally and ultimately this will be a 3D printed part but considering the time involved in that process I simply fabricated one using a spare blank PCB.  You can read about that process [here](https://fix.this.later) along with details about its dimensions and hole locations.
+Installing the sensors inside the SmartiPi case requires a seperate sensor carrier board.  Ideally and ultimately this will be a 3D printed part but considering the time involved in that process I simply fabricated one using a spare blank PCB.  You can read about that process [here](https://github.com/wjlove/WHAQM/blob/main/documentation/carrier-board.md) along with details about its dimensions and hole locations.
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/carrier-board.jpg?raw=true) _Carrier board with holes_
 
 As it currently stands this design is not ideal as a considerable amount of heat is generated internally by both the Raspberry Pi and the touchscreen display thus affecting the temperature measurements provided by the SCD-40 sensor unit by as much as 5 degrees.  Various insulating mitigations, as well as other air flow considerations, can be applied to the case and the sensor carrier board to reduce this effect. However my results to date have been varied and require further investigation.  The SmartiPi case does come with a fan which you can install and resolves this issue but the additional noise created by the fan was unacceptable to me.
