@@ -124,6 +124,32 @@ When the initial software has completed the loading process the “Status” wil
 
 ### Using the WHAQM software
 
+outline
+
+brief overview of menus
+    top
+    main summery page
+    detailed sensor information
+        location measurement details
+        measurements by locaiton
+
+review some of the buttons
+    time period
+    manual refresh
+    automatic refresh slection
+    view mode - add warning about touchscreen 
+### Adding more devices....
+
+outline
+
+currently suppoerted devices
+    balenaAIR
+    WHAQM
+
+need WHAQM_SENSOR_NAME
+need modify mosquitto.conf file in MQTT container with WHAQM_COLLECTOR_URL
+for WHAQM devices, point borwser block to WHAQM_COLLECTOR_URL
+
 ### Troubleshooting
 
 
