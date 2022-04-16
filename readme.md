@@ -1,7 +1,7 @@
 
  ![The Whole Home Air Quality Monitoring Project](https://github.com/wjlove/WHAQM/blob/main/documentation/images/two-display-sidebyside.jpg?raw=true)
 
-*An extension of the balenAIR project that allows for multiple sensor devices in various location within your home or any indoor location*
+_An extension of the balenAIR project that allows for multiple sensor devices in various location within your home or any indoor location_
 
 # Whole Home Air Quality Monitoring Project
 **_Both this code and documentation are currently under construction)_**
@@ -45,7 +45,7 @@ There are several options for choosing a physical case that will house the Raspb
 
 ### Sensors
 
-The sensors evaluate your air and return data that is used to deterime your air quality score. This project, like balenAIR,  supports the three different sensors listed below. You can choose to have one, two, or all three present in your device, depending on your budget and air quality analysis needs.
+The sensors used in this project evaluate the air surrounding the device and return data that is used to determine your air quality index or AQI. You can find more about how this number and how it is calculated at [AirNow](https://www.airnow.gov/aqi/aqi-basics/). Like balenAIR, WHAQM supports the three different sensors listed below. You can choose to have one, two, or all three present in your device, depending on your budget and air quality analysis needs.
 
 | Sensor | Detects | Description |  Specifications (approx.) |
 | ------------ | ----------- | ----------- | ----------- |
@@ -57,8 +57,8 @@ All of these sensors use the popular I2C protocol to communicate with the Pi and
 
 ### Sensor Carrier Board
 
-In order to install the sensors inside the SmartiPi case they need to be installed on a carrier board.  Ideally and ultimately this will be a 3D printed part but for now I simply cut up an old blank PCB to the dimensions that fit the case and drilled a few holes that allowed me to affix the sensors securely to the back of the display case.  You can read about that process [here](https://fix.this.later) along with details about dimensions and hole locations.
-![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/carrier-board.jpg?raw=true) *Carrier board with holes*
+Installing the sensors inside the SmartiPi case requires a seperate sensor carrier board.  Ideally and ultimately this will be a 3D printed part but considering the time involved in that process I simply fabricated one using a spare blank PCB.  You can read about that process [here](https://fix.this.later) along with details about its dimensions and hole locations.
+![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/carrier-board.jpg?raw=true) _Carrier board with holes_
 
 As it currently stands this design is not ideal as the amount of heat generated internally by both the Raspi and the touchscreen affect  the temperature measurements provided by the SCD-40 by as much as 5 degrees.  Various insulating mitigations can be applied to the case and carrier board to reduce this effect but my results to date have been varied.   The case does come with an optional fan which does resolve the issue but the additional noise created by it was unacceptable to me.
 ### Miscellaneous Items
