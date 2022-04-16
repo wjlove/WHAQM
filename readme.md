@@ -84,7 +84,7 @@ You can deploy this project in one click using the button below:
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/wjlove/WHAQM)
 
-This will automagiclly allow you to create (or use an existing) fleet, install the appropriate software and prepare everything for your first device deployment.  Pressing the button will walk you thru the necessary steps to get started. After providing the needed information balena Cloud will collect and build the appropriate software for your devices.  This will take some time, but you can follow the progress in the “Releases” window on the right:
+This will automaticlly allow you to create (or use an existing) fleet, install the appropriate software and prepare everything for your first device deployment.  Pressing the button will walk you thru the necessary steps to get started. After providing the needed information balena Cloud will collect and build the appropriate software for your devices.  This will take some time, but you can follow the progress in the “Releases” window on the right:
 
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/Screenshot-Build-in-Progress.jpg?raw=true) _Build in progress_
 
