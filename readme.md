@@ -18,20 +18,16 @@ During the process of testing my initial build device I noticed that the measure
 
 At its core, this project is simply an extension of the great work done on the balenAIR project and adds the following features:
 
-- A standalone balenAIR like device with a touchscreen display
-- A centralized balenAIR like device with a touchscreen display
-- Ability to collect data from multiple air quality devices
-- Ability to display aggregated measurements from multiple devices
-- Ability to predict air quality conditions based on previous measurement - _not completed_
+- A balenAIR like device with a touchscreen display
+- Ability to collect data from multiple balenaAIR and WHAQM devices
+- Ability to display aggregated measurements from all devices
+- Ability to predict air quality conditions based on previous measurements - _not completed_
  
-## Hardware Selection
+## Hardware Selection and Setup
 
- There are a number of options when it comes to selecting hardware for the IAQ. Cost, availability and performance are some factors to consider when choosing the parts below.
+The hardware items selected for use in this project are mostly defined by the balenAIR project and its original recommendations. There are a number of options when it comes to choosing these devices and cost, availability plus performance are some factors to consider when reviewing the parts below.
 
 ### Choosing your Pi
-
-
-
 
 This project currently runs on a Raspberry Pi, so you'll need one of the following compatible devices:
 
@@ -39,11 +35,11 @@ This project currently runs on a Raspberry Pi, so you'll need one of the followi
 - [Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/)
 - [Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 
-Note: If you plan on having a significant number of remote sensor devices like those from the balenAIR project you should consider using a Pi 4 as the prediction software can be rather compute intensive.
+If you plan on having a significant number of sensor devices in multiple locations I would recommend that you consider using a Pi 4 as the main device. The air quality prediction software can be rather compute intensive over time and a Pi 4 also provides a "snappier" experience when using the touch screen.
 
 ### The Display and Case
 
-There are many options for choosing a case that will house the Raspberry Pi, the touchscreen device and all the sensors or you can make your own.  After some review I settled on the [SmartiPi Touch Pro - Small](https://smarticase.com/products/smartipi-touch-pro) and the original [Raspberry Pi Touch Display](https://www.raspberrypi.com/products/raspberry-pi-touch-display/).  Both are easily available for purchase and well supported.  
+There are several options for choosing a physical case that will house the Raspberry Pi, the touchscreen device and all the sensors. You can even consider making your own for a personal touch.  After some review and consideration I committed to the [SmartiPi Touch Pro - Small](https://smarticase.com/products/smartipi-touch-pro). It supports the original [Raspberry Pi Touch Display](https://www.raspberrypi.com/products/raspberry-pi-touch-display/) which I have selected as my prefered touchscreen device and has plenty of internal space to house all the necessary sensors.  Both are easily available for purchase, well supported and currently reasonably priced.  
 
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/case-display.jpg?raw=true)
 
