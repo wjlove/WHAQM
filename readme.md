@@ -4,7 +4,7 @@
 *An extension of the balenAIR project that allows for multiple sensor devices in various location within your home or any indoor location*
 
 # Whole Home Air Quality Monitoring Project
-**_(This code and documentation are currently under construction)_**
+**_Both this code and documentation are currently under construction)_**
 
 ## Reasoning
 
