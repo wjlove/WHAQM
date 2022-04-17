@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 9,
-  "iteration": 1650209177062,
+  "iteration": 1650211987982,
   "links": [
     {
       "asDropdown": true,
@@ -115,9 +115,126 @@
       "repeatDirection": "v",
       "scopedVars": {
         "locations": {
-          "selected": true,
+          "selected": false,
           "text": "I am Alive!",
           "value": "I am Alive!"
+        }
+      },
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "IAQ Prediction for $locations",
+      "type": "loudml-graph-panel"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 3,
+      "options": {
+        "datasourceOptions": {
+          "datasource": "",
+          "input_bucket": "",
+          "output_bucket": "loudml"
+        },
+        "graph": {
+          "fill": 1,
+          "fillGradient": 0,
+          "isStacked": false,
+          "lineWidth": 1,
+          "showBars": false,
+          "showLines": true,
+          "showPoints": false
+        },
+        "legend": {
+          "asTable": false,
+          "isVisible": true,
+          "placement": "under"
+        },
+        "tooltipOptions": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "7.5.15",
+      "repeatDirection": "v",
+      "repeatIteration": 1650211987982,
+      "repeatPanelId": 2,
+      "scopedVars": {
+        "locations": {
+          "selected": false,
+          "text": "No Room Assigned",
+          "value": "No Room Assigned"
         }
       },
       "targets": [
@@ -177,10 +294,10 @@
         "current": {
           "selected": true,
           "text": [
-            "I am Alive!"
+            "All"
           ],
           "value": [
-            "I am Alive!"
+            "$__all"
           ]
         },
         "datasource": null,
@@ -219,8 +336,8 @@
       "1h"
     ]
   },
-  "timezone": "browser",
+  "timezone": "",
   "title": "Predictions",
   "uid": "odq9QwgRz",
-  "version": 14
+  "version": 16
 }

@@ -431,8 +431,8 @@
     "hidden": true,
     "nowDelay": ""
   },
-  "timezone": "browser",
+  "timezone": "",
   "title": "Main Summary",
   "uid": "E8KPiJy7k",
-  "version": 7
+  "version": 8
 }

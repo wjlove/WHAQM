@@ -21,6 +21,7 @@ At its core, this project is simply an extension of the great work done on the b
 - A balenAIR like device with a touchscreen display
 - Ability to collect data from multiple balenaAIR and WHAQM devices
 - Ability to display aggregated measurements from all devices
+- Ability to use touchscren device to provide alerts - _currently broken, disabled_
 - Ability to predict air quality conditions based on previous measurements - _not completed_
  
 ## Hardware Selection and Setup

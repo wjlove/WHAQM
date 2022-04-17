@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1650209146065,
+  "iteration": 1650211980082,
   "links": [
     {
       "asDropdown": true,
@@ -132,75 +132,51 @@
       "type": "row"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "short"
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 0,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 8,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.15",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "alias": "$tag_topic",
@@ -252,79 +228,94 @@
           "tags": []
         }
       ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
       "title": "Air Quality Indexes",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
       "transparent": true,
-      "type": "timeseries"
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:60",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:61",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": null,
       "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMax": 3000,
-            "axisSoftMin": 0,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 8,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 10,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.15",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "alias": "$tag_topic",
@@ -374,80 +365,94 @@
           "tags": []
         }
       ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
       "title": "CO2 (ppm)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
       "transparent": true,
-      "type": "timeseries"
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:160",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": "3000",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:161",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": null,
       "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "hue",
-            "hideFrom": {
-              "graph": false,
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": true
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 16,
         "y": 3
       },
+      "hiddenSeries": false,
       "id": 12,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        },
-        "tooltipOptions": {
-          "mode": "single"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.15",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "alias": "$tag_topic",
@@ -497,9 +502,49 @@
           "tags": []
         }
       ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
       "title": "Total Volatile Organic Compounds (ppb)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
       "transparent": true,
-      "type": "timeseries"
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:260",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": "1500",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:261",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "collapsed": false,
@@ -1192,7 +1237,7 @@
       },
       "id": 31,
       "panels": [],
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 6,
       "scopedVars": {
         "locations": {
@@ -1253,7 +1298,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 22,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1327,7 +1372,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 20,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1407,7 +1452,7 @@
         "textMode": "value"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 14,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1512,7 +1557,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1617,7 +1662,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 16,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1717,7 +1762,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 24,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1789,7 +1834,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 26,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1861,7 +1906,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650209146065,
+      "repeatIteration": 1650211980082,
       "repeatPanelId": 28,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1926,9 +1971,13 @@
       {
         "allValue": "Multiple",
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": null,
         "definition": "SHOW TAG values  with KEY  = \"topic\"",
@@ -1965,8 +2014,8 @@
       "1h"
     ]
   },
-  "timezone": "browser",
+  "timezone": "",
   "title": "Main Details",
   "uid": "QOrnqHsnz",
-  "version": 15
+  "version": 18
 }
