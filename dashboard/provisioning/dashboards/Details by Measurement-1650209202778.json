@@ -21,19 +21,47 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
-  "iteration": 1650036214617,
+  "id": 8,
+  "iteration": 1650209197681,
   "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Top"
+      ],
+      "targetBlank": false,
+      "title": "Main",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
     {
       "asDropdown": false,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
       "tags": [
-        "Main"
+        "loudml"
       ],
       "targetBlank": false,
-      "title": "Home Page",
+      "title": "Predictions",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Detailed"
+      ],
+      "targetBlank": false,
+      "title": "Detailed Information",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
@@ -559,7 +587,7 @@
         "description": null,
         "error": null,
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "Device Location:",
         "multi": true,
         "name": "location",
@@ -618,7 +646,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Measurements by Location",
+  "title": "Details by Measurement",
   "uid": "7isudks7z",
-  "version": 4
+  "version": 7
 }

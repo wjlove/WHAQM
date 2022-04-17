@@ -16,18 +16,32 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 9,
-  "iteration": 1650041494084,
+  "iteration": 1650209177062,
   "links": [
     {
-      "asDropdown": false,
+      "asDropdown": true,
       "icon": "external link",
       "includeVars": false,
       "keepTime": false,
       "tags": [
-        "Main"
+        "Top"
       ],
       "targetBlank": false,
-      "title": "Home Page",
+      "title": "Main",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Detailed"
+      ],
+      "targetBlank": false,
+      "title": "Detailed Information",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
@@ -97,6 +111,15 @@
         }
       },
       "pluginVersion": "7.5.15",
+      "repeat": "locations",
+      "repeatDirection": "v",
+      "scopedVars": {
+        "locations": {
+          "selected": true,
+          "text": "I am Alive!",
+          "value": "I am Alive!"
+        }
+      },
       "targets": [
         {
           "groupBy": [
@@ -166,7 +189,7 @@
         "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": "Default locations to view",
+        "label": "Select Locations:",
         "multi": true,
         "name": "locations",
         "options": [],
@@ -199,5 +222,5 @@
   "timezone": "browser",
   "title": "Predictions",
   "uid": "odq9QwgRz",
-  "version": 7
+  "version": 14
 }
