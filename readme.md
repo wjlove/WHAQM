@@ -131,7 +131,7 @@ Intro-
 
 - brief overview of menus
   - top
-    - main summory page
+    - main summary page
     - detailed sensor information
     - location measurement details
     - measurements by location
