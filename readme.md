@@ -139,6 +139,9 @@ Intro-
     - manual refresh
     - automatic refresh slection
     - view mode - add warning about touchscreen 
+
+- making changes to Grafana dashboards
+- direct access via web borwser
 ### Adding more devices....
 
 ***_outline_***
