@@ -131,31 +131,31 @@ Intro-
 
 - brief overview of menus
   - top
-    - main summery page
+    - main summory page
     - detailed sensor information
     - location measurement details
-    - measurements by locaiton
+    - measurements by location
 
 - review some of the buttons
     - time period
     - manual refresh
-    - automatic refresh slection
-    - view mode - add warning about touchscreen 
+    - automatic refresh selection
+    - view mode - add warning about touchscreen (can not disable yet)
 
-- direct access via web borwser
+- direct access via web browser
 - making changes to Grafana dashboards
 
 ### Adding more devices....
 
 ***_outline_***
 
-- currently suppoerted devices
+- currently supported devices
     - balenaAIR
     - WHAQM
 
 - need WHAQM_SENSOR_NAME
 - need modify mosquitto.conf file in MQTT container with WHAQM_COLLECTOR_URL
-- for WHAQM devices, point borwser block to WHAQM_COLLECTOR_URL
+- for WHAQM devices, point browser block to WHAQM_COLLECTOR_URL
 
 ### Troubleshooting
 
