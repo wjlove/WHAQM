@@ -123,7 +123,7 @@ When the initial software has completed the loading process the “Status” wil
 
 ### Using the WHAQM software
 
-outline
+***_outline_***
 
 Intro-  
 
@@ -141,7 +141,7 @@ Intro-
     - view mode - add warning about touchscreen 
 ### Adding more devices....
 
-outline
+***_outline_***
 
 - currently suppoerted devices
     - balenaAIR
