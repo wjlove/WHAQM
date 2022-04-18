@@ -21,9 +21,10 @@ At its core, this project is simply an extension of the great work done on the b
 - A balenAIR like device with a touchscreen display
 - Ability to collect data from multiple balenaAIR and WHAQM devices
 - Ability to display aggregated measurements from all devices
-- Ability to use touchscren device to provide alerts - _currently broken, disabled_
+- Ability to use touchscren device to provide alerts - _currently broken due to prediction work, disabled_
 - Ability to predict air quality conditions based on previous measurements - _not completed_
  
+
 ## Hardware Selection and Setup
 
 The hardware items selected for use in this project are mostly defined by the balenAIR project and its original recommendations. There are a number of options when it comes to choosing these devices and cost, availability plus performance are some factors to consider when reviewing the parts below.
@@ -120,36 +121,42 @@ When the initial software has completed the loading process the “Status” wil
 ![](https://github.com/wjlove/WHAQM/blob/main/documentation/images/better-first-boot.jpg?raw=true) _…nothing more to do here!_
 
 
-
 ### Using the WHAQM software
 
 outline
 
-brief overview of menus
-    top
-    main summery page
-    detailed sensor information
-        location measurement details
-        measurements by locaiton
+Intro-  
 
-review some of the buttons
-    time period
-    manual refresh
-    automatic refresh slection
-    view mode - add warning about touchscreen 
+- brief overview of menus
+  - top
+    - main summery page
+    - detailed sensor information
+    - location measurement details
+    - measurements by locaiton
+
+- review some of the buttons
+    - time period
+    - manual refresh
+    - automatic refresh slection
+    - view mode - add warning about touchscreen 
 ### Adding more devices....
 
 outline
 
-currently suppoerted devices
-    balenaAIR
-    WHAQM
+- currently suppoerted devices
+    - balenaAIR
+    - WHAQM
 
-need WHAQM_SENSOR_NAME
-need modify mosquitto.conf file in MQTT container with WHAQM_COLLECTOR_URL
-for WHAQM devices, point borwser block to WHAQM_COLLECTOR_URL
+- need WHAQM_SENSOR_NAME
+- need modify mosquitto.conf file in MQTT container with WHAQM_COLLECTOR_URL
+- for WHAQM devices, point borwser block to WHAQM_COLLECTOR_URL
 
 ### Troubleshooting
 
+- Software Tools
+    - MQTT Explorer
+    - InfluxBD Studio
+    - Grafana Website
 
-
+- HArdware Tools
+    - ???
