@@ -123,7 +123,7 @@ When the initial software has completed the loading process the “Status” wil
 
 ### Using the WHAQM software
 
-Design goal intro-  Using as many perdefined balena blocks as possible with as little modificationa as possible to build a new project.  Only real modifications are found in IAQ.py and Dashboard, all the hard work is handled by generic balena blocks.
+Design Goal Intro-  Using as many perdefined balena blocks as possible with as little modificationa as possible to build a new project.  Only real software modifications here are found in IAQ.py and Dashboard, all the hard work is handled by generic balena blocks.
 
 ***_outline_***
 
