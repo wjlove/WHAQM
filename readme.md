@@ -123,6 +123,8 @@ When the initial software has completed the loading process the “Status” wil
 
 ### Using the WHAQM software
 
+Design goal intro-  Using as many perdefined balena blocks as possible with as little modificationa as possible to build a new project.  Only real modifications are IAQ.py and MQTT docker container everythign is handled by generic blocks
+
 ***_outline_***
 
 Intro-  
@@ -140,8 +142,9 @@ Intro-
     - automatic refresh slection
     - view mode - add warning about touchscreen 
 
-- making changes to Grafana dashboards
 - direct access via web borwser
+- making changes to Grafana dashboards
+
 ### Adding more devices....
 
 ***_outline_***

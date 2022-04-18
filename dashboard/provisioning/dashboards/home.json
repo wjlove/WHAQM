@@ -418,7 +418,8 @@
   "schemaVersion": 27,
   "style": "dark",
   "tags": [
-    "Top"
+    "Top",
+    "Main"
   ],
   "templating": {
     "list": []
@@ -434,5 +435,5 @@
   "timezone": "",
   "title": "Main Summary",
   "uid": "E8KPiJy7k",
-  "version": 8
+  "version": 9
 }

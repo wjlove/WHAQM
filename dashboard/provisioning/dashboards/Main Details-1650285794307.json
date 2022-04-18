@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 7,
-  "iteration": 1650211980082,
+  "iteration": 1650285778124,
   "links": [
     {
       "asDropdown": true,
@@ -1237,7 +1237,7 @@
       },
       "id": 31,
       "panels": [],
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 6,
       "scopedVars": {
         "locations": {
@@ -1298,7 +1298,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 22,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1372,7 +1372,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 20,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1452,7 +1452,7 @@
         "textMode": "value"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 14,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1557,7 +1557,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1662,7 +1662,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 16,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1762,7 +1762,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 24,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1834,7 +1834,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 26,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1906,7 +1906,7 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.5.15",
-      "repeatIteration": 1650211980082,
+      "repeatIteration": 1650285778124,
       "repeatPanelId": 28,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1936,7 +1936,8 @@
   "schemaVersion": 27,
   "style": "dark",
   "tags": [
-    "Top"
+    "Top",
+    "Main"
   ],
   "templating": {
     "list": [
@@ -2017,5 +2018,5 @@
   "timezone": "",
   "title": "Main Details",
   "uid": "QOrnqHsnz",
-  "version": 18
+  "version": 19
 }
