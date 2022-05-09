@@ -1,0 +1,439 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 5,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Top"
+      ],
+      "targetBlank": false,
+      "title": "Main",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "loudml"
+      ],
+      "targetBlank": false,
+      "title": "Predictions",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "Detailed"
+      ],
+      "targetBlank": false,
+      "title": "Detailed Sensor Information",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "IAQ"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Average IAQ Index",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 5000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 1000
+              },
+              {
+                "color": "red",
+                "value": 2000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 7,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE $timeFilter GROUP BY time($__interval), \"topic\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "co2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Average  CO2",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1500,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 500
+              },
+              {
+                "color": "red",
+                "value": 1000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 14,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE $timeFilter GROUP BY time($__interval), \"topic\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "TVOC"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Average  TVOC",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "bgColor": "transparent",
+        "clockType": "12 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2022-03-31T17:34:35-04:00",
+          "endText": "00:00:00"
+        },
+        "countupSettings": {
+          "beginCountupTime": "2022-03-31T17:34:35-04:00",
+          "beginText": "00:00:00"
+        },
+        "dateSettings": {
+          "dateFormat": "MMMM DD, YYYY",
+          "fontSize": "15px",
+          "fontWeight": "normal",
+          "locale": "",
+          "showDate": true
+        },
+        "mode": "time",
+        "refresh": "sec",
+        "timeSettings": {
+          "fontSize": "15px",
+          "fontWeight": "normal"
+        },
+        "timezone": "",
+        "timezoneSettings": {
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "showTimezone": false,
+          "zoneFormat": "offsetAbbv"
+        }
+      },
+      "pluginVersion": "1.3.0",
+      "transparent": true,
+      "type": "grafana-clock-panel"
+    }
+  ],
+  "refresh": "1m",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [
+    "Top",
+    "Main"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true,
+    "nowDelay": ""
+  },
+  "timezone": "",
+  "title": "Main Summary",
+  "uid": "E8KPiJy7k",
+  "version": 4
+}
