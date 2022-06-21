@@ -5,28 +5,17 @@ volumes:
     dashboard-data:
     iaq-data:
     browser-settings:
-    loudml-data:
 #
 services:
 #
   influxdb:
     restart: always
-    build: ./influx
+    image: arm32v7/influxdb@sha256:2fed9b09a672cab330ac3ea1f03616e6821f2235bda64d549f605ef0d7081911
+    # build: ./influx
     volumes:
       - 'sense-data:/var/lib/influxdb'
     ports:
       - 8086:8086 # Enable this for remote testing
-#
-# LoudML engine works but Grafana conflicts and bugs not yet resolved
-#  loudml:
-#    restart: always
-#    build: ./loudml
-#    volumes:
-#      - loudml-data:/var/lib/loudml
-#    ports:
-#      - 8077:8077
-#    depends_on:
-#      - influxdb
 #
   dashboard:
     restart: always
@@ -44,6 +33,7 @@ services:
         - 'iaq-data:/data/my_data'
 #
   zeroconf:
+    restart: always
     image: bh.cr/william_love/simple-zeroconf-arm7hf
     network_mode: host
     environment:
@@ -55,9 +45,10 @@ services:
 #
   connector:
     restart: always
-    image: balenablocks/connector
+    image: bh.cr/balenablocks/connector-armv7hf
     labels:
       io.balena.features.balena-api: '1'
+      io.balena.features.supervisor-api: '1'
     privileged: true
 #
   mqtt:
@@ -68,19 +59,20 @@ services:
 #
   wifi-connect:
     restart: always
-    image: balenablocks/wifi-connect:armv7hf
+    image: bh.cr/balenablocks/wifi-connect-armv7hf
     network_mode: host
     privileged: true
     labels:
       io.balena.features.dbus: "1"
       io.balena.features.firmware: "1"
     environment:
-      PORTAL_SSID: WHAQM Connect
+      PORTAL_SSID: "WHAQM Connect"
       PORTAL_LISTENING_PORT: 8080
       ACTIVITY_TIMEOUT: 120
 #
   browser:
-    image: balenablocks/browser
+    restart: always
+    image: bh.cr/balenablocks/browser-armv7hf
     privileged: true # required for UDEV to find plugged in peripherals such as a USB mouse
     network_mode: host
     ports:
@@ -89,6 +81,5 @@ services:
     environment:
       TZ: EST
       KIOSK: 1
-      # LAUNCH_URL: "http://dashboard.local" # Force browser block to find only the dashboard w/o modifying its code - doesn't work this way
     volumes:
-      - 'browser-settings:/data' # Only required if using PERSISTENT flag (see below)
+      - 'browser-settings:/data' # Only required if using PERSISTENT flag

@@ -1,6 +1,0 @@
-cryptography==3.3.2
-balena-sdk==11.0.0
-PluginBase
-toml
-requests
-PyJWT==1.7.1
