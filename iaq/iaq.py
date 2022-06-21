@@ -361,8 +361,7 @@ def pm25_index(pm25):
     else:
         scaler = make_interpolater(PM25_RED, PM25_MAX, 75, 99)
         scaled_pm25 = scaler(pm25)
-    
-    
+      
     if scaled_pm25 > 99:
         scaled_pm25 = 99
         
