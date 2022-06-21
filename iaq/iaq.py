@@ -268,7 +268,7 @@ if my_stick.begin() == True:
     time.sleep(0.75)
     my_stick.LED_off()
 else:
-    print("Skipping LED stick...")
+    print("No LED stick found, not using LED stick...")
 
 def scd_sense():
     #
@@ -462,6 +462,7 @@ def display_index(index_value):
     #
     # Display a two digit number on the LEDs
     #
+    # Simple way to catch not having a local display, could be done better
     if bar_graph == 0 and matrix_display == 0:
         #print("Nothing to display on...")
         return
@@ -490,6 +491,7 @@ def display_led(my_matrix, my_value, color):
     #
     # Display a single digit
     #
+    # Simple way to catch not having a local display, could be done better
     if bar_graph == 0 and matrix_display == 0:
         #print("Nothing to display on...")
         return
@@ -513,10 +515,11 @@ def display_pollutant(pm10, pm25, co2, voc):
     #  representing highest-indexed pollutant
     #  Uses icons list 0/1=PM1, 2/3=PM2, 4/5=CO2
     #
+    # Simple way to catch not having a local display, could be done better
     if bar_graph == 0 and matrix_display == 0:
         #print("Nothing to display on...")
         return
-    #
+
     index_list = [pm10, pm25, co2, voc]
     max_value = max(index_list)
     max_value_index = index_list.index(max_value)
@@ -537,6 +540,7 @@ def display_icon(icon_index, my_color):
     # Display a two character icon on the display
     # icon_index is the index of the first character
     #
+    # Simple way to catch not having a local display, could be done better
     if bar_graph == 0 and matrix_display == 0:
         #print("Nothing to display on...")
         return
