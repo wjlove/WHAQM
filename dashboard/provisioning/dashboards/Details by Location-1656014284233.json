@@ -21,8 +21,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 6,
-  "iteration": 1650285819506,
+  "id": 9,
+  "iteration": 1656014123541,
   "links": [
     {
       "asDropdown": true,
@@ -132,8 +132,8 @@
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "title": "$location Measurements",
@@ -216,7 +216,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -225,12 +225,12 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -256,7 +256,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -359,7 +359,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -368,12 +368,12 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -399,7 +399,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -502,7 +502,7 @@
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -511,12 +511,12 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -542,7 +542,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -675,7 +675,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -684,12 +684,12 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -714,7 +714,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"humidity\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT last(\"humidity\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -790,7 +790,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -799,12 +799,12 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -830,7 +830,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT ((\"temperature\" * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT ((last(\"temperature\") * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -901,12 +901,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -998,12 +998,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -1098,12 +1098,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -1167,12 +1167,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -1236,12 +1236,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
+      "pluginVersion": "7.5.1",
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "I am Alive!",
-          "value": "I am Alive!"
+          "text": "William_Love Loft",
+          "value": "William_Love Loft"
         }
       },
       "targets": [
@@ -1270,13 +1270,13 @@
       },
       "id": 36,
       "panels": [],
-      "repeatIteration": 1650285819506,
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 2,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "title": "$location Measurements",
@@ -1359,7 +1359,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -1368,15 +1368,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 4,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -1402,7 +1402,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1505,7 +1505,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -1514,15 +1514,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 6,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -1548,7 +1548,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1660,15 +1660,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 8,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -1694,7 +1694,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT last(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1827,7 +1827,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -1836,15 +1836,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 12,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -1869,7 +1869,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"humidity\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT last(\"humidity\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1945,7 +1945,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -1954,15 +1954,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 10,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -1988,7 +1988,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT ((\"temperature\" * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "query": "SELECT ((last(\"temperature\") * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2059,15 +2059,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 14,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -2159,15 +2159,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 16,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -2262,15 +2262,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 18,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -2334,15 +2334,15 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 20,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
         }
       },
       "targets": [
@@ -2406,15 +2406,1188 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.15",
-      "repeatIteration": 1650285819506,
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
       "repeatPanelId": 22,
       "repeatedByRow": true,
       "scopedVars": {
         "location": {
           "selected": false,
-          "text": "No Room Assigned",
-          "value": "No Room Assigned"
+          "text": "William_Love Office_Display",
+          "value": "William_Love Office_Display"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT \"particles 50um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Particles at 50um",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 47,
+      "panels": [],
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 2,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "title": "$location Measurements",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "Healthy"
+                },
+                "to": 49
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 50,
+                "result": {
+                  "index": 1,
+                  "text": "Moderate"
+                },
+                "to": 74
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 75,
+                "result": {
+                  "index": 2,
+                  "text": "Unhealthy"
+                },
+                "to": 99
+              },
+              "type": "range"
+            }
+          ],
+          "max": 99,
+          "min": 0,
+          "noValue": "No Information",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-yellow",
+                "value": 50
+              },
+              {
+                "color": "dark-red",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 0,
+        "y": 25
+      },
+      "id": 48,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"IAQ\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/)  AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "IAQ"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Air Quality Index",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "Healthy"
+                },
+                "to": 999
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1000,
+                "result": {
+                  "color": "dark-yellow",
+                  "index": 1,
+                  "text": "Moderate"
+                },
+                "to": 1999
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 2000,
+                "result": {
+                  "color": "dark-red",
+                  "index": 2,
+                  "text": "Unhealthy"
+                },
+                "to": 5000
+              },
+              "type": "range"
+            }
+          ],
+          "max": 5000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-yellow",
+                "value": 1000
+              },
+              {
+                "color": "dark-red",
+                "value": 2000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 5,
+        "y": 25
+      },
+      "id": 49,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 6,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"co2\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "co2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "CO2 (ppm)",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "Healthy"
+                },
+                "to": 499
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 500,
+                "result": {
+                  "color": "dark-yellow",
+                  "index": 1,
+                  "text": "Moderate"
+                },
+                "to": 999
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1000,
+                "result": {
+                  "color": "dark-red",
+                  "index": 2,
+                  "text": "Unhealthy"
+                },
+                "to": 60000
+              },
+              "type": "range"
+            }
+          ],
+          "max": 1500,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-yellow",
+                "value": 500
+              },
+              {
+                "color": "dark-red",
+                "value": 1000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 10,
+        "y": 25
+      },
+      "id": 50,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 8,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"TVOC\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "TVOC"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Total Volatile Organic Compounds (ppb)",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "dark-orange",
+                  "index": 0
+                },
+                "to": 24
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 25,
+                "result": {
+                  "color": "dark-yellow",
+                  "index": 1
+                },
+                "to": 29
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 30,
+                "result": {
+                  "color": "dark-green",
+                  "index": 2
+                },
+                "to": 59
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 60,
+                "result": {
+                  "color": "dark-yellow",
+                  "index": 3
+                },
+                "to": 69
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 70,
+                "result": {
+                  "color": "dark-orange",
+                  "index": 4
+                },
+                "to": 100
+              },
+              "type": "range"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "noValue": "No Information",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-orange",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 25
+              },
+              {
+                "color": "dark-green",
+                "value": 30
+              },
+              {
+                "color": "dark-yellow",
+                "value": 60
+              },
+              {
+                "color": "dark-orange",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 15,
+        "y": 25
+      },
+      "id": 51,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 12,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"humidity\") FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Humidity (%)",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 120,
+          "min": 32,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 55
+              },
+              {
+                "color": "dark-green",
+                "value": 65
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "dark-red",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "fahrenheit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 25
+      },
+      "id": 52,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 10,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT ((last(\"temperature\") * 1.8) + 32) FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Temperature",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 0,
+        "y": 30
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 14,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"particles 03um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "particles 03um"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Particles at 3um",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 5,
+        "y": 30
+      },
+      "id": 54,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 16,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"particles 05um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Particles at 5um",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 10,
+        "y": 30
+      },
+      "id": 55,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 18,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT \"particles 10um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Particles at 10um",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 15,
+        "y": 30
+      },
+      "id": 56,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 20,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "KYaOzzsnk"
+          },
+          "query": "SELECT \"particles 25um\" FROM \"mqtt_consumer\" WHERE (\"topic\" =~ /.*$location$/) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Particles at 25um",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 30
+      },
+      "id": 57,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.5.1",
+      "repeatIteration": 1656014123541,
+      "repeatPanelId": 22,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "location": {
+          "selected": false,
+          "text": "William_Love Office_IAQ",
+          "value": "William_Love Office_IAQ"
         }
       },
       "targets": [
@@ -2490,5 +3663,5 @@
   "timezone": "",
   "title": "Details by Location",
   "uid": "3AxE0Nynz",
-  "version": 11
+  "version": 1
 }
